@@ -1,0 +1,6 @@
+title: "Fundamentals Before Frameworks"
+icon: "fa-seedling"
+color: "#16A085"
+desc: "The mental models every developer needs before reaching for a framework: how the web actually works, how browsers render pages, and the workflows — git, the shell, debugging — that make everything else easier."
+prereqs: ["networking"]
+order: 2

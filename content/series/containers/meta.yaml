@@ -1,0 +1,6 @@
+title: "Containers & Infra"
+icon: "fa-box-open"
+color: "#2C3E50"
+desc: "Packaging an application so it runs the same way everywhere: containers vs virtual machines, Dockerfiles, image layers, orchestration basics, and reverse proxies."
+prereqs: ["clean-arch"]
+order: 8

@@ -1,0 +1,6 @@
+title: "Testing Strategies That Work"
+icon: "fa-flask-vial"
+color: "#8E44AD"
+desc: "Move beyond the testing pyramid. Learn boundary-focused unit tests, contract tests, and property-based testing that actually catch bugs."
+prereqs: ["fundamentals"]
+order: 3

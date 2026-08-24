@@ -1,0 +1,6 @@
+title: "API Design Patterns"
+icon: "fa-plug"
+color: "#C77D0A"
+desc: "Design APIs that developers love. Cover resource modeling, versioning, pagination, error handling, rate limiting, and the REST vs GraphQL decision."
+prereqs: ["clean-arch"]
+order: 6

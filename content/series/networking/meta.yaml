@@ -1,0 +1,6 @@
+title: "Networking Fundamentals"
+icon: "fa-network-wired"
+color: "#8E7CC3"
+desc: "How machines actually find and talk to each other: DNS, the OSI/TCP-IP stack, sockets, routing, and the encryption layered on top. The floor everything else in this library stands on."
+prereqs: []
+order: 1

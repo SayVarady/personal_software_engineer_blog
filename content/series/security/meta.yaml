@@ -1,0 +1,6 @@
+title: "Security & Auth"
+icon: "fa-shield-halved"
+color: "#C0392B"
+desc: "Who's allowed to do what, and how you actually know. Session-based and token-based auth, password hashing, OAuth, TLS, and the common vulnerabilities that show up in real apps."
+prereqs: ["fundamentals"]
+order: 4

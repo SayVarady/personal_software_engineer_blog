@@ -1,0 +1,6 @@
+title: "Shipping & Operating Code"
+icon: "fa-truck-fast"
+color: "#D35400"
+desc: "The gap between 'it works on my machine' and 'it's live and someone depends on it': CI/CD, environments, observability, deployment strategies, and what happens when it breaks at 2am."
+prereqs: ["api-design", "db-internals", "containers", "security"]
+order: 9

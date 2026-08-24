@@ -1,0 +1,6 @@
+title: "Clean Architecture in Practice"
+icon: "fa-cubes"
+color: "#2D6A4F"
+desc: "Internalize the principles behind clean architecture: dependency inversion, layer boundaries, and framework independence — with real code in every chapter."
+prereqs: ["testing"]
+order: 5

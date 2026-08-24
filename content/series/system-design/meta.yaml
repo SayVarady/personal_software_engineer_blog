@@ -1,0 +1,6 @@
+title: "System Design from Scratch"
+icon: "fa-diagram-project"
+color: "#E74C3C"
+desc: "Design scalable, resilient distributed systems from first principles. Load balancing, caching, sharding, message queues, and fault tolerance — one building block at a time."
+prereqs: ["api-design", "db-internals", "shipping-ops"]
+order: 10

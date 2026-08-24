@@ -1,0 +1,6 @@
+title: "Database Internals Deep Dive"
+icon: "fa-database"
+color: "#2980B9"
+desc: "Understand what happens beneath your ORM. B-trees vs LSM trees, isolation levels, WAL, query planning, and replication protocols — all demystified."
+prereqs: ["clean-arch"]
+order: 7
