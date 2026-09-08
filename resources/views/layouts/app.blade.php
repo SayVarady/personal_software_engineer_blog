@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Rady Daries — Personal Software Engineering Tutorials')</title>
+    <title>@yield('title', "Varady's Notebook — Personal Software Engineering Tutorials")</title>
     <meta name="description" content="@yield('description', 'Personal software engineering journey, tutorials, and career notes.')">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
@@ -27,8 +27,8 @@
             <a href="{{ route('home') }}" class="flex items-center gap-2">
                 <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:var(--primary)"><i
                         class="fa-solid fa-route text-white text-sm"></i></div>
-                <span class="font-bold text-lg tracking-tight" style="color:var(--fg)">Rady<span
-                        style="color:var(--primary)">Daries</span></span>
+                <span class="font-bold text-lg tracking-tight" style="color:var(--fg)">Varady's <span
+                        style="color:var(--primary)">Notebook</span></span>
             </a>
             <div class="hidden sm:flex items-center gap-6 text-sm font-medium" style="color:var(--fg2)">
                 <a href="{{ route('home') }}" class="hover:text-[var(--primary)] transition-colors">Library</a>
