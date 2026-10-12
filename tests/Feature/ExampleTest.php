@@ -16,4 +16,15 @@ class ExampleTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    public function test_chapter_with_motion_graphics_renders_successfully(): void
+    {
+        $response = $this->get('/series/db-internals/db1');
+
+        $response->assertStatus(200);
+        $response->assertSee('data-motion-type="diagram"', false);
+        $response->assertSee('data-motion-type="steps"', false);
+        $response->assertSee('motion-pipeline-beacon', false);
+        $response->assertSee('Interactive Architecture: RAM Buffer vs Physical Disk', false);
+    }
 }

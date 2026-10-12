@@ -5,7 +5,7 @@
         "api/index.php": { "runtime": "vercel-php@0.7.1" }
     },
     "routes": [
-        { "src": "/(.*\\.(?:css|js|mjs|ico|png|jpg|jpeg|gif|svg|webp|avif|woff2?|ttf|eot|map|txt|xml|json))", "dest": "/public/$1" },
+        { "src": "/(.*\\.(?:css|js|mjs|ico|png|jpg|jpeg|gif|svg|webp|avif|woff2?|ttf|eot|map|txt|xml|json|lottie|riv|webm|mp4))", "dest": "/public/$1" },
         { "src": "/(.*)", "dest": "/api/index.php" }
     ],
     "env": {

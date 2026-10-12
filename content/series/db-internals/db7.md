@@ -2,7 +2,7 @@
 title: "Transaction Isolation Levels"
 dur: "18 min"
 diff: "intermediate"
-order: 2
+order: 7
 ---
 
 _This chapter hasn't been written yet — check back soon._

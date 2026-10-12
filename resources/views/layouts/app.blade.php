@@ -51,6 +51,9 @@
     </main>
     <canvas id="celebration-canvas"></canvas>
 
+    <!-- Lottie Web Players (JSON + DotLottie container support, 0 build step, 0 Vercel bandwidth) -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@2.0.8/dist/lottie-player.js"></script>
+    <script type="module" src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     @yield('scripts')
 </body>

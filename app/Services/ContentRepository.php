@@ -19,9 +19,12 @@ class ContentRepository
 
     protected CommonMarkConverter $markdown;
 
-    public function __construct()
+    protected MotionRenderer $motion;
+
+    public function __construct(?MotionRenderer $motion = null)
     {
         $this->basePath = base_path('content/series');
+        $this->motion = $motion ?? new MotionRenderer();
         $this->markdown = new CommonMarkConverter([
             'html_input' => 'strip',
             'allow_unsafe_links' => false,
@@ -111,7 +114,9 @@ class ContentRepository
 
         return Cache::remember("content:chapter:{$seriesId}:{$chapterId}:{$fp}", now()->addDays(30), function () use ($file, $chapterId) {
             [$front, $body] = $this->splitFrontmatter(file_get_contents($file));
+            [$body, $motionPlaceholders] = $this->motion->extract($body);
             $html = $this->markdown->convert($body)->getContent();
+            $html = $this->motion->restore($html, $motionPlaceholders);
             [$html, $toc] = $this->addHeadingIds($html);
 
             $front['id'] = $chapterId;
