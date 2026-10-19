@@ -118,6 +118,8 @@ Atomic transaction ensures the consistency of the data inside a database. Lack o
 
 In real-world application there are many transactions happen at the same time or there are many concurrency transaction. The question is if one user modified the data in the database. will other users that currently connected to the database see the change? What if the transaction is not yet commit? 
 
+## 3.1 Read Phenomema
+
 Example 1:
 User A adds new client for the clients table
 User B requests for a total clients that closed in the current month.
@@ -130,7 +132,49 @@ The transaction from user A got committed.
 
 All of these are called **Read Phenomena**: it is an unexpected behaviors that happens when multiple database transaction interfere with each other. There are:
 
-- _Dirty Reads_: Refers to a read transaction that read the data during other transaction. In simple term, you read the uncommited data.
-- _Non-Repeatable Reads_: You read the inconsistent data
-- _Phantom Reads_:
-- _Lost Updates_:
+- **Dirty Reads**: Refers to a read transaction that read the data during other transaction. In simple term, you read the uncommited data.
+- **Non-Repeatable Reads**: You read the inconsistent data
+- **Phantom Reads**: There is a new value being added after you read the data
+- **Lost Updates**: The value had been modified after you read it. You read the old value
+
+## 3.2 Isolation Level
+
+Isolation was created to solve these issues. There are isolation levels each handle specific problem:
+
+- **Read uncommitted**: No isolation level, any change from outside will is visible to the transaction, regardless of committed or not.
+- **Read committed**: Each query of a transaction only read the committed change.
+- **Repeatable read**: The transaction is making sure that when it read a value from that row. The row remains unchange until the transaction is finished.
+- **Snapshot**: Each query of a transaction only sees changes that have been committed until the start a transaction. It is like a snapshot of a database at the moment. Eventhough there are new committed change during the transaction, It will just ignore it.
+- **Serializable**: Transactions are run as if they serialize after one another.
+
+So in short an Isolation is being implemented to solve the Read Phenomena:
+
+Here are the isolation levels and read phenomena they solved:
+
+```markdown
+| Isolation Level  | Dirty           | Lost Updates   | Non-repeatable  | Phantom         |
+| ---------------  | --------------- | -------------- | --------------- | --------------- |
+| Read uncommitted | May occur       | May occur      | May occur       | May occur       |
+| Read committed   | None            | May occur      | May occur       | May occur       |
+| Repeatable Read  | None            | None           | None            | May occur       |
+| Serializable     | None            | None           | None            | None            |
+```
+
+Database implementation of isolation
+- **Pessimistic** Rows locks, table locks, page locks to avoid lost-updated. (Not allow to change anything)
+- **Optimistic** No locks, just track if things changed, we return a fail transaction and retry again.
+- **Repeatable Read** "Locks" the row it reads but it will consume a lot of resource if we read a lot of row.
+- **Serializable** are usually implemented with optimistic concurrency control, we can implement it pessimistically with SELECT FOR UPDATE.
+
+**Summary**: Isolation is an implementation that a transaction is running in a completedly isolated from a concurrency transaction.
+
+## 4. Consistency (C from aCid)
+Consistency refers the availability of correct information at the right times. It can be the consistency of the data and the consistency when you read the data. Consistency is sometimes trade-off for speed. In some scenerio where a value from one entity depends on the result of a transaction from another entity, so there is chance that we will get an inconsistent data or your data is corrupted. I will disucss in a more advance topic.
+
+## 5. Durability (D from aciD)
+Durability on the database system refers to ability to ensure that the data is persisted even if an expected situation happen like a system crashed or power outage...etc. In simple term, we ensure that once the data is committed it has to be there. But to do that, database system usually trade the speed with durability. 
+- Changes made by a transactions must be persisted in a durable non-volatile storage (SSD, HDD)
+- Durability techniques:
+    - WAL - Write Ahead Log
+    - Asynchronous snapshot
+    - AOF
